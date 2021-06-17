@@ -3,6 +3,7 @@ import Red from '../components/RedComponent.vue'
 import Blue from '../components/BlueComponent.vue'
 import Yellow from '../components/YellowComponent.vue'
 import Green from '../components/GreenComponent.vue'
+import PostOffice from '../components/PostOffice.vue'
 
 
 const routes = [{
@@ -19,7 +20,8 @@ const routes = [{
         path: '/green',
         name: 'Green',
         component: Green
-    }, {
+    },
+    {
         path: '/Yellow',
         name: 'Yellow',
         component: Yellow

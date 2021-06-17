@@ -3,10 +3,39 @@
     <router-link to="/red">Red</router-link> |
     <router-link to="/blue">Blue</router-link> |
     <router-link to="/yellow">Yellow</router-link> |
-    <router-link to="/green">Green</router-link>
+    <router-link to="/green">Green</router-link> |
   </div>
-  <router-view/>
+  <router-view />
+  <div class="postoffice">
+    <input type="number" name="pincode" id="pincode" v-model="pincode" />
+    <button type="submit" @click="getPostOfficeData()">Submit</button>
+  </div>
+  <h3>
+    {{ postofficedata }}
+  </h3>
 </template>
+
+<script>
+const axios = require("axios").default;
+
+export default {
+  data() {
+    return {
+      pincode: "",
+      postofficedata: "",
+    };
+  },
+  methods: {
+    getPostOfficeData() {
+      axios
+        .get("https://api.postalpincode.in/pincode/" + this.pincode)
+        .then(
+          (response) => (this.postofficedata = response.data[0].PostOffice[0])
+        );
+    },
+  },
+};
+</script>
 
 <style>
 #app {
